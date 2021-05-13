@@ -1,5 +1,13 @@
 <div class="post-body">
+  <%= attachment_image_tag @book, :profile_image_id %>
   <p>Title：<%= @book.title %></p>
   <p>Opinion：<%= @book.body %></p>
-  <p>ユーザーネーム：<%= @book.user.name %></p>
+  <p>ユーザーネーム：
+  <%= link_to books_path do %>
+    <%= @book.user.name %>
+  <% end %>
+  </p>
+  <% if @book.user == current_user %>
+    <%= link_to "削除", book_path(@book), method: :delete %>
+  <% end %>
 </div>
