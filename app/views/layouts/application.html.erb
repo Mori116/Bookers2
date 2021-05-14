@@ -13,32 +13,34 @@
     <a href="https://2f50326f9d554a51b3db642e615c7a2b.vfs.cloud9.us-east-1.amazonaws.com/">Bookers</a>
     <% if user_signed_in? %>
       <li>
-        <%= link_to 'Home', user_path(current_user.id) %>
+        <i class="fas fa-home"></i><%= link_to 'Home', user_path(current_user.id) %>
       </li>
       <li>
-        <%= link_to 'Users', user_path %>
+        <i class="fas fa-users"></i><%= link_to 'Users', user_path %>
       </li>
       <li>
-        <%= link_to 'Books', books_path %>
+        <i class="fas fa-book-open"></i><%= link_to 'Books', books_path %>
       </li>
       <li>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
+        <i class="fas fa-sign-out-alt"></i><%= link_to "logout", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
-        <%= link_to 'Home', root_path %>
+        <i class="fas fa-home"></i><%= link_to 'Home', root_path %>
       </li>
       <li>
-        <%= link_to 'About', homes_about_path %>
+        <i class="fas fa-link"></i><%= link_to 'About', homes_about_path %>
       </li>
       <li>
-        <%= link_to "sign up", new_user_registration_path %>
+        <i class="fas fa-user-plus"></i><%= link_to "sign up", new_user_registration_path %>
       </li>
       <li>
-        <%= link_to "login", new_user_session_path %>
+        <i class="fas fa-sign-in-alt"></i><%= link_to "login", new_user_session_path %>
       </li>
     <% end %>
 
     <%= yield %>
+
+    <footer>CopyRight Infratop.inc</footer>
   </body>
 </html>
