@@ -1,0 +1,19 @@
+<h2>User info</h2>
+<%= form_with model:@user, local:true do |f| %>
+
+  <div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name, autofocus: true, placeholder:"名前" %>
+  </div>
+
+  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+  <%= f.label :Image %><br />
+  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+
+  <div class="field">
+  <%= f.label :introduction %><br />
+  <%= f.text_field :introduction, autofocus: true, placeholder:"自己紹介文" %>
+  </div>
+  <%= f.submit "変更を保存" %>
+
+<% end %>

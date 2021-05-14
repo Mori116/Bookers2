@@ -1,3 +1,12 @@
+<div class="profile-container">
+  <h3 class="profile-name"><%= @user.name %></h3>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+
+  <% if @user.id == current_user.id %>
+  <p><%= link_to "Edit", edit_user_path(@user) %></p>
+  <% end %>
+</div>
+
 <%= @books.each do |book| %>
   <div>
     <p><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></p>
@@ -10,3 +19,4 @@
     <p>ユーザーネーム：<%= book.user.name %></p>
   </div>
 <% end %>
+<%= paginate @books %>

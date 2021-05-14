@@ -1,5 +1,5 @@
 <div class="post-body">
-  <%= attachment_image_tag @book, :profile_image_id %>
+  <p><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></p>
   <p>Title：<%= @book.title %></p>
   <p>Opinion：<%= @book.body %></p>
   <p>ユーザーネーム：
