@@ -1,4 +1,5 @@
 <h2>User info</h2>
+
 <%= form_with model:@user, local:true do |f| %>
 
   <div class="field">
@@ -14,6 +15,6 @@
   <%= f.label :introduction %><br />
   <%= f.text_field :introduction, autofocus: true, placeholder:"自己紹介文" %>
   </div>
-  <%= f.submit "変更を保存" %>
+  <%= f.submit "Update User" %>
 
 <% end %>
