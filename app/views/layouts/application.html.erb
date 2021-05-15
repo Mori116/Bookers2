@@ -27,7 +27,7 @@
               <%= link_to ' Home', user_path(current_user.id), class: 'nav-link text-light fas fa-home' %>
             </li>
             <li class="nav-item">
-              </i><%= link_to ' Users', user_path, class: 'nav-link text-light fas fa-users' %>
+              </i><%= link_to ' Users', users_path, class: 'nav-link text-light fas fa-users' %>
             </li>
             <li class="nav-item">
                <%= link_to ' Books', books_path, class: 'nav-link text-light fas fa-book-open' %>
@@ -60,13 +60,15 @@
     <%= yield %>
   </main>
 
-  <div class="container mt-5">
-    <div class="row">
-      <div class="mx-auto">
-        <footer>CopyRight Infratop.inc</footer>
+  <footer>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+          CopyRight Infratop.inc
+        </div>
       </div>
     </div>
-  </div>
+  </footer>
 
 </body>
 
