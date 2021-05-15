@@ -1,0 +1,41 @@
+<!--User info-->
+<div class="profile-container">
+  <h2>User info</h2>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  <h3>name<%= @user.name %></h3>
+  <h3>introduction<%= @user.introduction %></h3>
+  <% if @user.id == current_user.id %>
+  <p><%= link_to edit_user_path(@user), method: :get do %>
+    <i class="fas fa-user-cog"></i>
+  </p>
+  <% end %>
+</div>
+
+<!--form-->
+<h2>New book</h2>
+<%= form_with model: @book, local:true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit'Create Book' %>
+<% end %>
+
+<!--User一覧-->
+<h1>Users</h1>
+<%= @users.each do |user| %>
+  <div>
+    <p>
+      image
+      <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+    </p>
+    <p>
+      name
+      <%= user.name %>
+    </p>
+    <p>
+      Show
+      <%= link_to'Show', user_path(user.id) %>
+    </p>
+  </div>
+<% end %>
