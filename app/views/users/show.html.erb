@@ -17,7 +17,7 @@
           </table>
           <div class="row">
           <% if @user.id == current_user.id %>
-            <%= link_to edit_user_path(@user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog' %>
+            <%= link_to '', edit_user_path(@user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog' %>
           <% end %>
           </div>
       </div>
@@ -57,8 +57,7 @@
                   <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
                 </td>
                 <td>
-                  <%= link_to book_path(book.id) %>
-                  <%= book.title %>
+                  <%= link_to book.title, book_path(book.id) %>
                 </td>
                 <td>
                   Opinion：<%= book.body %>

@@ -17,7 +17,7 @@
           </table>
           <div class="row">
           <% if @user.id == current_user.id %>
-            <%= link_to edit_user_path(@user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog' %>
+            <%= link_to '', edit_user_path(@user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog' %>
           <% end %>
           </div>
       </div>
@@ -53,7 +53,7 @@
         <% end %>
       </p>
       <p><%= @book.body %></p>
-    
+
       <% if @book.user == current_user %>
         <%= link_to "Edit", edit_book_path(@book) %>
         <%= link_to "Destroy", book_path(@book), method: :delete %>
