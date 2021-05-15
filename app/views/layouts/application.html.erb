@@ -11,13 +11,12 @@
   </head>
 
 <body class="d-flex flex-column vh-100">
-  <header class="shadow-sm">
-  <main>
+  <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <strong>
-          <a class="navbar-brand p-3" href="https://2f50326f9d554a51b3db642e615c7a2b.vfs.cloud9.us-east-1.amazonaws.com/">Bookers</a>
-        </strong>
+          <a class="navbar-brand" href="https://2f50326f9d554a51b3db642e615c7a2b.vfs.cloud9.us-east-1.amazonaws.com/">
+          <span>Bookers</span>
+          </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,6 +54,9 @@
       </div>
     </nav>
   </header>
+
+  <main>
+    <p id="notice"></p>
     <%= yield %>
   </main>
 
