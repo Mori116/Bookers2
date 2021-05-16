@@ -16,9 +16,9 @@
             </tr>
           </table>
           <div class="row">
-          <% if @user.id == current_user.id %>
+            <% if @user.id == current_user.id %>
             <%= link_to '', edit_user_path(@user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog' %>
-          <% end %>
+            <% end %>
           </div>
       </div>
 
@@ -39,25 +39,33 @@
         <% end %>
     </div>
 
-    <!--book detail-->
-    <div class="post-body">
-      <p><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></p>
-      <p>
-      <%= link_to user_path do %>
-        <%= @user.name %>
-      <% end %>
-      </p>
-      <p>
-        <%= link_to book_path do %>
-        <%= @book.title %>
-        <% end %>
-      </p>
-      <p><%= @book.body %></p>
-
-      <% if @book.user == current_user %>
-        <%= link_to "Edit", edit_book_path(@book) %>
-        <%= link_to "Destroy", book_path(@book), method: :delete %>
-      <% end %>
+    <div class="col-md-8 offset-md-1">
+      <!--book detail-->
+      <h2>Book detail</h2>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %><br />
+                <%= link_to @user.name, user_path(@user) %>
+              </td>
+              <td>
+                <%= link_to @book.title, book_path %>
+              </td>
+              <td>
+                <%= @book.body %>
+              </td>
+              <% if @book.user == current_user %>
+              <td>
+                <%= link_to "Edit", edit_book_path(@book), class: 'btn btn-sm btn-success' %>
+              </td>
+              <td>
+                <%= link_to "Destroy", book_path(@book), method: :delete, class: 'btn btn-sm btn-danger', "data-confirm" => "本当に消しますか？" %>
+              </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 </div>

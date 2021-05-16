@@ -14,9 +14,9 @@ def create
 end
 
 def show
-  @book = Book.find(params[:id])
   @book = Book.new
   @user = current_user
+  @book = Book.find(params[:id])
 end
 
 def destroy
