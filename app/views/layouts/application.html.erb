@@ -12,6 +12,8 @@
 
 <body class="d-flex flex-column vh-100">
   <header>
+    <div>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
           <a class="navbar-brand" href="https://2f50326f9d554a51b3db642e615c7a2b.vfs.cloud9.us-east-1.amazonaws.com/">
@@ -56,6 +58,10 @@
   </header>
 
   <main>
+    <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: key) %>
+    <% end %>
+    <!--投稿成功時のコメント表示-->
     <p id="notice"></p>
     <%= yield %>
   </main>
