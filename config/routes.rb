@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 devise_for :users
+# deviseは先頭に記述しておいたほうがよい。エラーの原因になることがある
 root to: 'homes#top'
 get 'homes/about'
 
