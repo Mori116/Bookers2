@@ -21,7 +21,8 @@ def update
     flash[:notice] = 'You have updated user successfully.'
     redirect_to user_path(@user.id)
   else
-    render edit_user_path
+    @users = User.all
+    render :edit
   end
 end
 

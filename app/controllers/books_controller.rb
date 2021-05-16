@@ -13,7 +13,9 @@ def create
     flash[:notice] = 'You have created book successfully.'
     redirect_to book_path(@book)
   else
-    render  books_path
+    @books = Book.all
+    @user = current_user
+    render  :index
   end
 end
 
@@ -39,7 +41,8 @@ def update
     flash[:notice] = 'You have updated book successfully.'
     redirect_to book_path(@book.id)
   else
-    render edit_book_path
+    @books = Book.all
+    render :edit
   end
 end
 
