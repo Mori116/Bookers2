@@ -3,20 +3,19 @@ class UsersController < ApplicationController
 def index
   @users = User.all
   @user = current_user
+  @book = Book.new
 end
 
 def show
   @user = User.find(params[:id])
-  @books = @user.books.page(params[:page]).reverse_order
+  @books = @user.books.all
   @book = Book.new
 end
 
 def edit
   @user = User.find(params[:id])
-  if @user == current_user
-    render :edit
-  else
-    redirect_to users_path
+  if @user != current_user
+    redirect_to user_path(current_user)
   end
 end
 
