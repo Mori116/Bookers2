@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'book_comments/create'
+  get 'book_comments/destroy'
 devise_for :users
 # deviseは先頭に記述しておいたほうがよい。エラーの原因になることがある
 root to: 'homes#top'
