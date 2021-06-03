@@ -12,7 +12,7 @@ class SearchController < ApplicationController
     #@datasに最終的な検索結果が入ります
   end
 
-    private
+  private
 
   def match(model, value)
   #def search_forでhowがmatchだった場合の処理
@@ -26,7 +26,7 @@ class SearchController < ApplicationController
   end
 
   def forward(model, value)
-    if model == 'User'
+    if model == 'user'
       User.where("name LIKE ?", "#{value}%")
     elsif model == 'book'
       Book.where("title LIKE ?", "#{value}%")
