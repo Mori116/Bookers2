@@ -7,6 +7,7 @@ class BookCommentsController < ApplicationController
   end
 
   def destroy
+    # binding.pry　← 一時ここで処理ストップさせてターミナルで挙動確認することが可能。
     @book = Book.find(params[:book_id])
     @comment = BookComment.find_by(id: params[:id], book_id: @book)
     @comment.destroy
