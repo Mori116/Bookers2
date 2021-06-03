@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'search/search'
   get 'book_comments/create'
   get 'book_comments/destroy'
 devise_for :users
@@ -17,5 +18,7 @@ resources :users, only: [:index, :show, :edit, :update] do
   get 'followings' => 'relationships#followings', as: 'followings'
   get 'followers' => 'relationships#followers', as: 'followers'
 end
+
+get '/search', to: 'search#search'
 
 end
