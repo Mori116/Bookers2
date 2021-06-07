@@ -1,8 +1,12 @@
 class BooksController < ApplicationController
 
 def index
-  @books = Book.includes(:favorites).sort {|a,b| b.favorites.count <=> a.favorites.count}
-  # @books = Book.allの意。かつ、いいね数の多い順に並べ替え（sortメソッド）可能にする。
+  to  = Time.current.at_end_of_day
+  from  = (to - 6.day).at_beginning_of_day
+  @books = Book.includes(:favorites).
+  sort {|a,b| b.favorites.where(created_at: from...to).count <=>
+  a.favorites.where(created_at: from...to).count}
+  # @books = Book.allの意。かつ、過去１週間でいいね数の多い順に並べ替え（sortメソッド）可能にする。
   @book = Book.new
   @user = current_user
 end
