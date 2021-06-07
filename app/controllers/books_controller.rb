@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
 
+impressionist :actions => [:index, :show]
+
 def index
   to  = Time.current.at_end_of_day
   from  = (to - 6.day).at_beginning_of_day
@@ -8,6 +10,7 @@ def index
   a.favorites.where(created_at: from...to).count}
   # @books = Book.allの意。かつ、過去１週間でいいね数の多い順に並べ替え（sortメソッド）可能にする。
   @book = Book.new
+  # 閲覧数
   @user = current_user
 end
 
@@ -27,6 +30,8 @@ end
 def show
   @book_new = Book.new
   @book = Book.find(params[:id])
+  impressionist(@book, nil, unique: [:session_hash.to_s])
+  # 閲覧数
   @book_comment = BookComment.new
   @user = @book.user
   @currentUserEntry = Entry.where(user_id: current_user.id)

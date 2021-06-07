@@ -47,6 +47,9 @@
                 <td>
                   コメント数：<%= book.book_comments.count %>
                 </td>
+                <td>
+                  閲覧数：<%= book.impressionist_count(:filter=>:session_hash) %>
+                </td>
               </tr>
             <% end %>
           </tbody>
