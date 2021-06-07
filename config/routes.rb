@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'search/search'
-  get 'book_comments/create'
-  get 'book_comments/destroy'
 devise_for :users
 # deviseは先頭に記述しておいたほうがよい。エラーの原因になることがある
+
 root to: 'homes#top'
 get 'home/about' => "homes#about", as: 'homes_about'
 
@@ -20,5 +18,8 @@ resources :users, only: [:index, :show, :edit, :update] do
 end
 
 get '/search', to: 'search#search'
+
+resources :messages, only: [:create]
+resources :rooms, only: [:create, :show]
 
 end
