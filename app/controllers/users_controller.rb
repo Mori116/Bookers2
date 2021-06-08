@@ -8,8 +8,6 @@ end
 
 def show
   @user = User.find(params[:id])
-  @books = @user.books.all
-  @book = Book.new
   @currentUserEntry = Entry.where(user_id: current_user.id)
   @userEntry = Entry.where(user_id: @user.id)
     unless @user.id == current_user.id
@@ -27,6 +25,14 @@ def show
         @entry = Entry.new
       end
     end
+
+    @book = Book.new
+    @books = @user.books
+    @today_book =  @books.created_today
+    @yesterday_book = @books.created_yesterday
+    @this_week_book = @books.created_this_week
+    @last_week_book = @books.created_last_week
+
 end
 
 def edit
