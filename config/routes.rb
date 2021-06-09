@@ -9,14 +9,16 @@ get 'home/about' => "homes#about", as: 'homes_about'
 resources :books, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
   resources :book_comments, only: [:create, :destroy]
   resource :favorites, only: [:create, :destroy]
+  # いいね、コメント機能
 end
 
 resources :users, only: [:index, :show, :edit, :update] do
   resource :relationships, only: [:create, :destroy]
   get 'followings' => 'relationships#followings', as: 'followings'
   get 'followers' => 'relationships#followers', as: 'followers'
+  # フォロー/フォロワー機能
   get "search", to: "users#search"
-  # 各ユーザーの投稿数
+  # 指定日の投稿数検索
 end
 
 get '/search', to: 'search#search'
@@ -24,5 +26,10 @@ get '/search', to: 'search#search'
 
 resources :messages, only: [:create]
 resources :rooms, only: [:create, :show]
+# DM機能
+
+resources :groups, only: [:index, :show, :create, :edit, :update]
+get 'create_group', to: 'groups#create_group'
+# グループ機能
 
 end
