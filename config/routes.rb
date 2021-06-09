@@ -28,8 +28,10 @@ resources :messages, only: [:create]
 resources :rooms, only: [:create, :show]
 # DM機能
 
-resources :groups, only: [:index, :show, :create, :edit, :update]
-get 'create_group', to: 'groups#create_group'
-# グループ機能
+resources :groups do
+  get 'join' => 'groups#join'
+end
+# get 'create_group', to: 'groups#create_group'　→ newアクションで利用可能
+# グループ機能とグループ参加機能
 
 end
