@@ -36,6 +36,20 @@
             <% end %>
         </tbody>
       </table>
+
+      <p>
+      <!--指定日の投稿数の検索-->
+      <%= form_with url: user_search_path(@user), method: :get do |f| %>
+        <%= f.date_field :created_at %>
+        <%= f.submit '検索', class: 'btn btn-primary'  %>
+      <% end %>
+      </p>
+      <div id="search_book">
+        <% if @search_book.present? %>
+          <%= render 'search', search_book: @search_book %>
+        <% end %>
+      </div>
+
       <h3>投稿数の前日比・前週比</h3>
         <div class="table_width">
           <table class='table table-bordered'>
@@ -88,6 +102,7 @@
           </table>
         </div>
         <%= render 'books_index', books: @books %>
+
     </div>
   </div>
 </div>
