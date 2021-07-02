@@ -34,4 +34,11 @@ end
 # get 'create_group', to: 'groups#create_group'　→ newアクションで利用可能
 # グループ機能とグループ参加機能
 
+resources :orders, only: [:index, :new, :create, :show] do
+	collection do
+		get 'confirm'
+		get 'complete'
+	end
+end
+
 end
