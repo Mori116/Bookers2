@@ -1,0 +1,10 @@
+<%= form_with model: @group, local: true do |f| %>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "参加する", class: 'btn btn-sm btn-primary' %>
+  </div>
+<% end %>

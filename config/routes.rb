@@ -30,6 +30,7 @@ resources :rooms, only: [:create, :show]
 
 resources :groups do
   get 'join' => 'groups#join'
+  # get 'join_check' => 'groups#join_check'
 end
 # get 'create_group', to: 'groups#create_group'　→ newアクションで利用可能
 # グループ機能とグループ参加機能

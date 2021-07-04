@@ -29,9 +29,13 @@ class GroupsController < ApplicationController
 
   def join
     @group = Group.find(params[:group_id])
-    @group.users << current_user
-    redirect_to  groups_path
   end
+  
+  # def join_check
+  #   @group = Group.find(params[:group_id])
+  #   @group.users << current_user
+  #   redirect_to  groups_path
+  # end
 
   def edit
     @group = Group.find(params[:id])
@@ -55,6 +59,6 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, :image, :introduction)
+    params.require(:group).permit(:name, :image, :introduction, :password, :password_confirmation)
   end
 end
