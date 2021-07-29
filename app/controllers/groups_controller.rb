@@ -30,12 +30,17 @@ class GroupsController < ApplicationController
   def join
     @group = Group.find(params[:group_id])
   end
-  
-  # def join_check
-  #   @group = Group.find(params[:group_id])
-  #   @group.users << current_user
-  #   redirect_to  groups_path
-  # end
+
+  def join_check
+    @group = Group.find(params[:group_id])
+    if @group && @group.authenticate(params[:group][:password])
+      @group.users << current_user
+      redirect_to  group_path(@group)
+    else
+      flash[:alert] = "パスワードが違います。"
+      render 'join'
+    end
+  end
 
   def edit
     @group = Group.find(params[:id])

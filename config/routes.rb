@@ -29,10 +29,9 @@ resources :rooms, only: [:create, :show]
 # DM機能
 
 resources :groups do
+  patch 'join_check' => 'groups#join_check'
   get 'join' => 'groups#join'
-  # get 'join_check' => 'groups#join_check'
 end
-# get 'create_group', to: 'groups#create_group'　→ newアクションで利用可能
 # グループ機能とグループ参加機能
 
 resources :orders, only: [:index, :new, :create, :show] do

@@ -1,7 +1,7 @@
-<%= form_with model: @group, local: true do |f| %>
+<%= form_with model: @group, url: group_join_check_path(@group), local: true do |f| %>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password %>
   </div>
 
   <div class="actions">
